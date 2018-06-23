@@ -31,6 +31,9 @@ authRoutes.post("/signup", (req, res, next) => {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
+  // authRoutes.get("/auth/profile", (req, res, next) => {
+  //   res.render("auth/profile", { "message": req.flash("error") });
+  // });
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {

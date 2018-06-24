@@ -14,5 +14,6 @@ router.get('/event/new-event', (req, res, next) => {
   res.render('event/new-event');
 });
 
+
 module.exports = router;
 

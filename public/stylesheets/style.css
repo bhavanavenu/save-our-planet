@@ -1,9 +1,14 @@
 body {
-  /* padding: 50px; */
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;  
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
+
+.tales {
+  width: 100%; }
+
+.carousel-inner {
+  width: 100%;
+  max-height: 680px !important; }
 
 /*# sourceMappingURL=style.css.map */

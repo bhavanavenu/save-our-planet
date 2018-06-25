@@ -5,9 +5,12 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: {type: String, required: true, unique:true},
   password: {type: String, required: true},
+  confirmatiinCode: String,
+  status: { type: String, enum: ['Active', 'Not Active' ] },
   email   : String,
   image   : String,
-  bio     : String
+  bio     : String,
+  _users: {type: Schema.Types.ObjectId, ref: 'User'}
   
 }, {
   timestamps: {

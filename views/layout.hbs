@@ -6,8 +6,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Save Our Planet</a>
+     <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="/"><img src="https://res.cloudinary.com/ddxwupalu/image/upload/v1529947883/16635-green-planet_1.jpg" width="40px";height="40px"><b>Save Our Planet</b></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,7 +19,23 @@
       <li class="nav-item">
         <a class="nav-link" href="/auth/login">Login</a>
       </li>
+
       <li class="nav-item">
+        <a class="nav-link" href="/auth/profile">Profile</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="">Events</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="">Contact Us</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="">LogOut</a>
+      </li>
+      {{!-- <li class="nav-item">
         <a class="nav-link" href="#"></a>
       </li>
       <li class="nav-item dropdown">
@@ -28,14 +44,14 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
          
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="/auth/profile">Profile</a>
           <a class="dropdown-item" href="#">Events</a>
           <a class="dropdown-item" href="#">Contact Us</a>
-          <a class="dropdown-item" href="#">LogOut</a>
+          <a class="dropdown-item" href="/">LogOut</a>
         
         </div>
 
-      </li>
+      </li> --}}
     </ul>
   </div>
 </nav>
@@ -46,8 +62,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ"></script>
 
-   
+ <script src='/javascripts/script.js'></script>
 
-    <script src='/javascripts/script.js'></script>
+{{!-- <div class="footer">
+  <p>Raising awareness on the most pressing environmental issues of our time is more important than ever!!</p>
+</div> --}}
   </body>
 </html>

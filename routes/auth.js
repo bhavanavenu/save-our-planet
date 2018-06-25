@@ -13,7 +13,7 @@ authRoutes.get("/login", (req, res, next) => {
 });
 
 authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/auth/profile",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -64,5 +64,10 @@ authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+// authRoutes.get('/auth/profile', (req, res, next) => {
+//   res.render('auth/profile');
+// });
+
 
 module.exports = authRoutes;

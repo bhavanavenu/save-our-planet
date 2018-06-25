@@ -5,7 +5,7 @@ const router  = express.Router();
 router.get('/', (req, res, next) => {
   res.render('index');
 });
-
+// GET profile page
 router.get('/auth/profile', (req, res, next) => {
   res.render('auth/profile');
 });
@@ -13,6 +13,7 @@ router.get('/auth/profile', (req, res, next) => {
 router.get('/event/new-event', (req, res, next) => {
   res.render('event/new-event');
 });
+
 
 module.exports = router;
 

@@ -4,12 +4,12 @@
 
 <form action='/auth/profile' method="POST" id="form-container">
   <label for="username">Username :</label>
-  <input id="username" type="text" name="username" placeholder="Username">
+  <input id="username" type="text" name="username" placeholder="Username" value="{{username}}">
 
   <br><br>
 
   <label for="Email">Email: </label>
-  <input id="Email" type="email" name="Email" placeholder="example@email.com">
+  <input id="Email" type="email" name="Email" placeholder="example@email.com" value="{{email}}">
 
   <br><br>
 
@@ -17,8 +17,8 @@
   <input id="password" type="password" name="password" placeholder="Your password">
   <br>
 
-<input type="file" name="pic" accept="image/*">
-<input type="submit">
+{{!-- <input type="file" name="pic" accept="image/*">
+<input type="submit"> --}}
 
 <br>
 

@@ -10,7 +10,7 @@ const userSchema = new Schema({
   email   : String,
   image   : String,
   bio     : String,
-  _users: {type: Schema.Types.ObjectId, ref: 'User'}
+  // _users: {type: Schema.Types.ObjectId, ref: 'User'}
   
 }, {
   timestamps: {

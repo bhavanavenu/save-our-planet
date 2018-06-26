@@ -3,11 +3,16 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const eventSchema = new Schema({
-  eventName : {type: String, required: true},
+  name : {type: String, required: true},
   location: {type: String, required: true},
   date: {type: Date, required: true},
-  time: {type: String, required: true},
-  description:String
+  description:String,
+  _participants: [{type: Schema.Types.ObjectId, ref: "User"}],
+  comments: [{
+    text: String,
+    _author: { type: Schema.Types.ObjectId, ref: "User" },
+    createdAt: { type: Date }
+  }]
 }, {
   timestamps: {
     createdAt: 'created_at',

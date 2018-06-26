@@ -9,12 +9,12 @@
   <br><br>
 
   <label for="Email">Email: </label>
-  <input id="Email" type="email" name="Email" placeholder="example@email.com" value="{{email}}">
+  <input id="Email" type="email" name="email" placeholder="example@email.com" value="{{email}}">
 
   <br><br>
 
   <label for="password">Password: </label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <input id="password" type="password" name="password" placeholder="Your password" required>
   <br>
 
 {{!-- <input type="file" name="pic" accept="image/*">
@@ -23,13 +23,12 @@
 <br>
 
 <label for="Bio">Bio :</label>
- <textarea rows="4" cols="50" placeholder="about you">
-</textarea>
+ <textarea name="bio" rows="4" cols="50" placeholder="{{bio}}"></textarea>
 
 <br>
 
-<button type="button">Update changes</button>
+<button type="submit">Update changes</button>
 <br><br>
-<button type="button">Create an event</button>
 
 </form>
+<button type="button">Create an event</button>

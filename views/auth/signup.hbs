@@ -1,32 +1,85 @@
-<!-- views/auth/signup.hbs -->
-<h2>Signup</h2>
-
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="johnsmith">
-
-  <br><br>
-
-  <label for="Email">Email</label>
-  <input id="Email" type="email" name="email" placeholder="johnsmith@gmail.com">
-
-  <br><br>
 
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="**********">
-  <br>
-  
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-6">
+                    <!-- form user info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Register</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="/auth/signup" class="form" role="form" autocomplete="off" method="POST">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Name</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" name="name" type="text" value="">
+                                    </div>
+                                </div>
+                                {{!-- <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="">
+                                    </div>
+                                </div> --}}
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" name="username" type="text" value="">
+                                    </div>
+                                </div>
 
-  <br><br>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="" name="email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="password" value="" name="password">
+                                    </div>
+                                </div>
+                                <div class="error">
+                                    {{#if message }}
+                                    <div class="error-message">{{ message }}</div>
+                                    {{/if}}
+                                </div>
+                                 
+                                
+                                <div class="form-group row">
+                                    {{!-- <label class="col-lg-3 col-form-label form-control-label">Create Account</label> --}}
+                                    <div class="col-lg-9">
+                                       <button type="submit">Create account</button>
+                                        {{!-- <input type="reset" class="btn btn-secondary" value="Cancel"> --}}
+                                     
+                                        
+                                   
 
-  <a href="/auth/profile"><button>Create account</button></a>
+                                         
+                                        {{!-- </div> --}}
+                                    </div>
+                                    </div>
+                                    {{!-- <button type="submit">Create account</button> --}}
+                                     </form>
+                                    <p class="account-message">
+                                    Do you already have an account?
+                                    <a href="/auth/login">
+                                    <input type="button" class="btn btn-primary" value="login">
+                                        </a> 
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+        </div>
+    </div>
+</div>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+
+
+
+
+
+
+
+

@@ -65,9 +65,9 @@ authRoutes.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-// authRoutes.get('/auth/profile', (req, res, next) => {
-//   res.render('auth/profile');
-// });
-
+authRoutes.get('/auth/profile', (req, res, next) => {
+  res.render('auth/profile', {USER});
+});
 
 module.exports = authRoutes;
+

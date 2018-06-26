@@ -9,26 +9,21 @@ a {
 
 .carousel-inner {
   width: 100%;
-  max-height: 650px !important;
- }
-
-/*# sourceMappingURL=style.css.map */
+  max-height: 680px !important; }
 
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color:white;
-  color:grey;
+  background-color: white;
+  color: grey;
   text-align: center;
   font-style: oblique;
-}
+  padding-bottom: 10px; }
 
 .navbar {
-  
-  background-color:white;
-  font-style: oblique;
-}
+  background-color: white;
+  font-style: oblique; }
 
-
+/*# sourceMappingURL=style.css.map */

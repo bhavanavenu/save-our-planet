@@ -1,7 +1,7 @@
-<form action="/event/new-event" method="POST" id="form-container">
+<form action="/events/new-event" method="POST" id="form-container">
 
   <label for="Event Name">Event Name :</label>
-  <input id ="Event Name" type="text" name="eventName" placeholder="add a short,clear name">
+  <input id ="Event Name" type="text" name="name" placeholder="add a short,clear name">
 
   <br><br>
 
@@ -22,7 +22,7 @@
   <br><br>
 
  <label for="Description">Description :</label>
- <textarea rows="4" cols="50" placeholder="tell people more about the event">
+ <textarea rows="4" cols="50" name="description">
 
 </textarea>
 
@@ -31,6 +31,6 @@
  <p>Yes!!! You can invite your friends too :)</p>
 
  
-<input type="submit">
+<button type="submit">Submit</button>
 
 </form>

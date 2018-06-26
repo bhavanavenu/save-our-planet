@@ -44,6 +44,7 @@ authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
+  const bio =req.body.bio;
   //const image = req.body.image;
   const role = req.body.role;
   if (username === "" || password === "" || email === "" ) {
@@ -131,9 +132,28 @@ authRoutes.get("/logout", (req, res) => {
 //   res.render('auth/profile');
 // });
 authRoutes.get("/profile", (req, res) => {
+  console.log(req.user)
 
   res.render("auth/profile", req.user);
 });
 
 
+//Update changes
+authRoutes.post("/profile",(req, res) => {
+  const salt = bcrypt.genSaltSync(bcryptSalt);
+  let id = req.user._id;
+  const {username, email, password, bio} = req.body;
+  const hashPass = bcrypt.hashSync(password, salt);
+  
+  var updateChanges = {username, email, password: hashPass, bio};
+  
+
+  User.findByIdAndUpdate(id, updateChanges)
+  .then(() => {
+    res.redirect(`/auth/profile/`);
+  })
+  .catch(error => {
+    next();
+  })
+});
 module.exports = authRoutes;

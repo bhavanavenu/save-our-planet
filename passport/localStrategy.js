@@ -15,6 +15,11 @@ passport.use(new LocalStrategy((username, password, next) => {
       return;
     }
 
+    if(foundUser.status !== 'Active'){
+      next(null, false, { message: 'Account not validated, check your emails to validate it' });
+      return;
+    }
+
     if (!bcrypt.compareSync(password, foundUser.password)) {
       next(null, false, { message: 'Incorrect password' });
       return;

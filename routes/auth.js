@@ -72,7 +72,7 @@ authRoutes.post("/signup", (req, res, next) => {
       password: hashPass,
       email,
       confirmationCode: hashConfirmation,
-      status: 'Not Active',
+      status: 'Pending',
       // image,
       role:"teacher"
     });
@@ -91,7 +91,7 @@ authRoutes.post("/signup", (req, res, next) => {
           to: email, 
           subject: "Congratulations for being a part of the change", 
           text: message,
-          html: `<b>${message} <a href="http://localhost:3000/confirm/${hashConfirmation}">Link</a></b>`
+          html: `<b>${message} <a href="http://localhost:3000/auth/confirm/${hashConfirmation}">Link</a></b>`
           
           //html: `Confirmation code: http://localhost:3000/auth/confirm/${hashConfirmation}`
         })
@@ -143,7 +143,7 @@ authRoutes.get("/logout", (req, res) => {
 // authRoutes.get('/auth/profile', (req, res, next) => {
 //   res.render('auth/profile');
 // });
-authRoutes.get("/profile",ensureLogin.ensureLoggedIn(), (req, res) => {
+authRoutes.get("/profile",ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => {
   console.log(req.user)
 
   res.render("auth/profile", req.user);

@@ -9,7 +9,7 @@ const nodemailer = require("nodemailer");
 
 //adding a middleware to make protected route
 eventRoutes.use((req, res, next) => {
-    if (req.session.currentUser) {
+    if (req.user) {
       next();
     } else {
       res.redirect("/auth/login");
@@ -44,7 +44,7 @@ eventRoutes.post('/new-event',(req,res,next)=>{
 
 })
 
-eventRoutes.get("/event", (req, res) => {
+eventRoutes.get("/", (req, res) => {
     Event.find()
     .then((events)=>{
         console.log(events)

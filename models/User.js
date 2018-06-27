@@ -5,7 +5,7 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: {type: String, required: true, unique:true},
   password: {type: String, required: true},
-  confirmatiinCode: String,
+  confirmationCode: String,
   status: { type: String, enum: ['Active', 'Pending' ] },
   email   : String,
   image   : String,

@@ -56,6 +56,14 @@ eventRoutes.get("/event", (req, res) => {
       })
   });
 
+  eventRoutes.get('/:eventId/edit', (req, res, next) => {
+    Event.findById( req.params.eventId )
+      .then( event => {
+        res.render( 'events/event-edit', {event});
+      })
+      .catch( err => { throw err } );
+  });
+
   module.exports = eventRoutes ;
 
 

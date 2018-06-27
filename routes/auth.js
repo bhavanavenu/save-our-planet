@@ -168,4 +168,6 @@ authRoutes.post("/profile",ensureLogin.ensureLoggedIn(), (req, res,next) => {
     next();
   })
 });
+
+
 module.exports = authRoutes;

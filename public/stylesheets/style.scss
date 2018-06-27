@@ -37,6 +37,10 @@ a {
   font-style: oblique;
 }
 
+.navbar-brand img{
+  border-radius:50%;
+}
+
 .edit-button {
   margin-left:20px; 
   color: #fff;
@@ -45,3 +49,11 @@ a {
   background-color: grey;
   border-radius: 6px;
 }
+
+.return {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 2px 4px;
+  background-color: grey;
+  border-radius: 6px; }

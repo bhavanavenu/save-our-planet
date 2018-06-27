@@ -4,9 +4,19 @@ const eventRoutes = express.Router();
 const User = require("../models/User");
 const Event = require("../models/Event");
 const router = express.Router();
-// const ensureLogin = require("connect-ensure-login");
-// const nodemailer = require("nodemailer");
+const ensureLogin = require("connect-ensure-login");
+const nodemailer = require("nodemailer");
 
+//adding a middleware to make protected route
+eventRoutes.use((req, res, next) => {
+    if (req.session.currentUser) {
+      next();
+    } else {
+      res.redirect("/auth/login");
+    }
+  });
+
+  //GET new event page
 eventRoutes.get('/new-event',(req,res,next)=>{
     res.render('events/new-event');
 });

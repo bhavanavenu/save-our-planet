@@ -91,7 +91,7 @@ authRoutes.post("/signup", (req, res, next) => {
           to: email, 
           subject: "Congratulations for being a part of the change", 
           text: message,
-          html: `<b>${message} <a href="http://localhost:3000/auth/confirm/${hashConfirmation}">Link</a></b>`
+          html: `<b>${message} <a href="http://localhost:3000/confirm/${hashConfirmation}">Link</a></b>`
           
           //html: `Confirmation code: http://localhost:3000/auth/confirm/${hashConfirmation}`
         })
@@ -105,12 +105,15 @@ authRoutes.post("/signup", (req, res, next) => {
 });
 
 // confirmation
-authRoutes.get('/auth/confirm/:hashConfirmation', (req,res,next) => {
+authRoutes.get('/confirm/:hashConfirmation', (req,res,next) => {
   //const confirmationCode = req.params.hashConfirmation;
+  console.log(req.params.hashConfirmation);
+
   User.findOne({confirmationCode : req.params.hashConfirmation})
+  
   .then(user => {
     User.findByIdAndUpdate(user._id, { status: 'Active' })
-    .then(updatedUser => {
+    .then(updatedUser => {  
       res.render('auth/confirmation', updatedUser);
     });
   })
@@ -125,13 +128,22 @@ authRoutes.get('/auth/confirm/:hashConfirmation', (req,res,next) => {
 
 authRoutes.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect("/auth/login");
 });
+
+
+//alternative code for logout
+// authRoutes.get("/logout", (req, res, next) => {
+//   req.session.destroy((err) => {
+//     // cannot access session here
+//     res.redirect("/login");
+//   });
+// });
 
 // authRoutes.get('/auth/profile', (req, res, next) => {
 //   res.render('auth/profile');
 // });
-authRoutes.get("/profile", (req, res) => {
+authRoutes.get("/profile",ensureLogin.ensureLoggedIn(), (req, res) => {
   console.log(req.user)
 
   res.render("auth/profile", req.user);
@@ -139,7 +151,7 @@ authRoutes.get("/profile", (req, res) => {
 
 
 //Update changes
-authRoutes.post("/profile",(req, res) => {
+authRoutes.post("/profile",ensureLogin.ensureLoggedIn(), (req, res,next) => {
   const salt = bcrypt.genSaltSync(bcryptSalt);
   let id = req.user._id;
   const {username, email, password, bio} = req.body;
@@ -159,4 +171,3 @@ authRoutes.post("/profile",(req, res) => {
 
 
 module.exports = authRoutes;
-

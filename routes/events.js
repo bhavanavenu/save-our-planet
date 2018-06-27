@@ -26,7 +26,7 @@ eventRoutes.post('/new-event',(req,res,next)=>{
     });
     newEvent.save()
     .then((event)=>{
-                res.redirect('/events')
+                res.redirect('/events/event')
             })
                 .catch((error)=>{
                     console.log(error)
@@ -34,7 +34,29 @@ eventRoutes.post('/new-event',(req,res,next)=>{
 
 })
 
-module.exports = eventRoutes ;
+eventRoutes.get("/event", (req, res) => {
+    Event.find()
+    .then((events)=>{
+        console.log(events)
+        res.render("events/event",{events})
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+});
+
+  eventRoutes.get('/:eventId', (req, res, next) => {
+    let eventId = req.params.eventId;
+    Event.findById(eventId)
+      .then(event => {
+        res.render("events/details",{event})
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  });
+
+  module.exports = eventRoutes ;
 
 
 

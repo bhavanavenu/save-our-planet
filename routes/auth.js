@@ -156,5 +156,7 @@ authRoutes.post("/profile",(req, res) => {
     next();
   })
 });
+
+
 module.exports = authRoutes;
 

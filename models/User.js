@@ -6,7 +6,7 @@ const userSchema = new Schema({
   username: {type: String, required: true, unique:true},
   password: {type: String, required: true},
   confirmatiinCode: String,
-  status: { type: String, enum: ['Active', 'Not Active' ] },
+  status: { type: String, enum: ['Active', 'Pending' ] },
   email   : String,
   image   : String,
   bio     : String,

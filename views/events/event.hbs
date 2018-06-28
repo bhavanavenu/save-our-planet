@@ -1,9 +1,20 @@
-
-<h1>EVENTS</h1>
+<div class = "container">
+    <div class="events">
+<h3>Events</h3>
+    </div>
+    <hr>
 {{#each events}}
-    <p>
-        <a href="/events/{{this._id}}">{{this.name}}</a>
+    <div class="event-container">
+
+        <div class="event-name">
+            <li><a href="/events/{{this._id}}">{{this.name}}</a></li>
+        
+        </div>
+        <div class="edit-delete">
         <a href="/events/{{this._id}}/edit">Edit</a>
         <a href="/events/{{this._id}}/delete">Delete</a>
-    </p>
+        </div>
+    </div>
 {{/each}}
+</div>
+

@@ -1,7 +1,7 @@
 
 
 <h5>Event Name : {{event.name}}</h5>
-<h5>Host : {{event._author}}</h5>
+<h5>Host : </h5>
 <h5>Location : {{event.location}}</h5>
 <h5>Date : {{event.date}}</h5>
 <h5>Description : {{event.description}}</h5>
@@ -15,11 +15,23 @@
 {{#if event._participants}}
 <ul>
     {{#each event._participants}}
-    <li>{{this}}</li>
+    <li>{{username}}</li>
     {{/each}}
 </ul>
 {{/if}}
 
+<h5>Comments :</h5>
+{{#if event}}
+<ul>
+    {{#each name }}
+    <li>{{event.comments}}</li>
+    {{/each}}
+</ul>
+{{/if}}
 
-<textarea rows="4" cols="50"></textarea>
+<form action="/events/{{event._id}}/comment" method="POST">
+<textarea id="comments" name="text" rows="4" cols="50"></textarea>
 <button type="submit">Comment</button>
+</form>
+
+ 

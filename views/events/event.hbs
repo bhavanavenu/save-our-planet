@@ -3,6 +3,7 @@
 {{#each events}}
     <p>
         <a href="/events/{{this._id}}">{{this.name}}</a>
-        <a href="/events/edit?event_id={{this._id}}" class="edit-button">EDIT</a>
+        <a href="/events/{{this._id}}/edit">Edit</a>
+        <a href="/events/{{this._id}}/delete">Delete</a>
     </p>
 {{/each}}

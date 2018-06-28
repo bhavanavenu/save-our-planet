@@ -1,28 +1,30 @@
-<form action="/events/new-event" method="POST" id="form-container">
+
+<h1>Edit {{name}}</h1>
+<form action="/events/{{this._id}}" method="POST">
 
   <label for="Event Name">Event Name :</label>
-  <input id ="Event Name" type="text" name="name" placeholder="add a short,clear name">
+  <input id ="Event Name" type="text" name="name" placeholder="add a short,clear name" value="{{name}}">
 
   
 
   <label for="Location">Location :</label>
-  <input id="Location" type="text" name="location" placeholder="include an address">
+  <input id="Location" type="text" name="location" placeholder="include an address" value="{{location}}">
 
  
 
   <label for="Date">Date :</label>
-  <input id="Date" type="date" name="date" placeholder="">
+  <input id="Date" type="date" name="date" placeholder="" value="{{date}}">
 
  
 
-  <label for="Time">Time :</label>
-  <input id="Time" type="time" name="time" placeholder="">
+  {{!-- <label for="Time">Time :</label>
+  <input id="Time" type="time" name="time" placeholder="" value="{{> --}}
 
 
  
 
  <label for="Description">Description :</label>
- <textarea rows="4" cols="50" name="description">
+ <textarea rows="4" cols="50" name="description" value="{{description}}">
 
 </textarea>
 
@@ -31,6 +33,6 @@
  <p>Yes!!! You can invite your friends too :)</p>
 
  
-<button type="submit">Edit</button>
+<button type="submit">Update</button>
 
 </form>

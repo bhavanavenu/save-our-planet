@@ -23,6 +23,8 @@ eventRoutes.get('/new-event',(req,res,next)=>{
 
 eventRoutes.post('/new-event',(req,res,next)=>{
   let userId = req.user.id;
+  console.log("DEBUG userId", userId);
+  
     const {name,location,description,date,time} = req.body; 
     console.log("req.body", req.body);
     console.log("name,location,description,date,time", name,location,description,date,time);
@@ -204,7 +206,3 @@ eventRoutes.get('/:eventId/delete', (req, res, next) => {
 
 
 
-
-       
-
-    

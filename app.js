@@ -12,11 +12,11 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
-    
+
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/project-2', {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -81,6 +81,10 @@ app.use((req,res,next)=> {
   next()
 })
     
+app.use(function(req,res,next){
+  res.locals.user = req.user;
+  next();
+})
 
 const index = require('./routes/index');
 app.use('/', index);

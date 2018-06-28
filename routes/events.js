@@ -162,7 +162,7 @@ eventRoutes.get('/:eventId/edit', (req, res, next) => {
 
 
 //update event page
-eventRoutes.post('/:eventId/update', (req, res, next) => {
+eventRoutes.post('/:eventId', (req, res, next) => {
   console.log("req body :", req.body)
   let { 
     name, 

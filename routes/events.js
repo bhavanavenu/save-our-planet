@@ -32,6 +32,8 @@ eventRoutes.post('/new-event',(req,res,next)=>{
         location,
         description,
         date,
+        _participants:[],
+        comments:[],
         // time
     });
     newEvent.save()
@@ -58,23 +60,46 @@ eventRoutes.get("/", (req, res) => {
   eventRoutes.get('/:eventId', (req, res, next) => {
     let eventId = req.params.eventId;
     Event.findById(eventId)
+    .populate('_participants')
       .then(event => {
-        res.render("events/details",{event})
+        const participants = event._participants;
+        res.render("events/details",{event, partcipants: participants})
       })
       .catch(error => {
         console.log(error)
       })
   });
 
-  eventRoutes.get('/:eventId/edit', (req, res, next) => {
-    Event.findById( req.params.eventId )
-      .then( event => {
-        res.render( 'events/event-edit', {event});
-      })
-      .catch( err => { throw err } );
-  });
+//edit event 
+  // eventRoutes.get('/:eventId/edit', (req, res, next) => {
+   // let eventId = req.params.eventId;
+  //   Event.findById( req.params.eventId )
+  //     .then( event => {
+  //       res.render( 'events/event-edit', {event});
+  //     })
+  //     .catch( err => { throw err } );
+  // });
 
-  module.exports = eventRoutes ;
+eventRoutes.get('/:eventId/join',(req,res,next)=>{
+  const joiningUserId = req.user._id;
+  let eventId = req.params.eventId;
+  Event.findById(eventId)
+  .then( event => {
+    event._participants.push( joiningUserId );
+    event.save( (err, updatedEvent) => {
+      if ( err ) {
+        console.log( err )
+      } else {
+        res.redirect(`/events/${updatedEvent._id}`)
+      }
+    } )
+  } )
+   //{ $push: {_participants: req.user._id} }
+
+})
+
+
+ module.exports = eventRoutes ;
 
 
 

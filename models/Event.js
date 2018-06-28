@@ -17,7 +17,8 @@ const eventSchema = new Schema({
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'
-  }
+  },
+  usePushEach: true
 });
 
 const Event = mongoose.model('Event', eventSchema);

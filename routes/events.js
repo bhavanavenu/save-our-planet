@@ -33,6 +33,7 @@ eventRoutes.post('/new-event',(req,res,next)=>{
     location,
     description,
     date,
+    _owner: userId,
     _participants: [],
     comments: [],
     // time
@@ -120,7 +121,6 @@ eventRoutes.post('/:eventId/comment', (req, res, next) => {
     });
     event.save()
     .then(updatedEvent=>{
-      console.log("newwwww ",updatedEvent)
       res.redirect(`/events/${updatedEvent._id}`)
       // res.render('details', updatedEvent)
     })
@@ -145,14 +145,18 @@ eventRoutes.post('/:eventId/comment', (req, res, next) => {
   // });
 
 //edit event page
-  eventRoutes.get('/:eventId/edit', (req, res, next) => {
-    Event.findById( req.params.eventId )
-      .then( event=> {
-        console.log("hello")
+eventRoutes.get('/:eventId/edit', (req, res, next) => {
+  Event.findById( req.params.eventId )
+  .then( event=> {
+      if (event._owner.toString() !== req.user._id.toString()) {
+        res.redirect("/events")
+      }
+      else {
         res.render( 'events/event-edit', event );
-      })
-      .catch( err => { throw err } );
-  });
+      }
+    })
+    .catch( err => { throw err } );
+});
 
 
 //update event page
@@ -181,10 +185,17 @@ eventRoutes.post('/:eventId/update', (req, res, next) => {
 
 //delete event
 eventRoutes.get('/:eventId/delete', (req, res, next) => {
-  Event.findByIdAndRemove( req.params.eventId )
-    .then( () => {
-      console.log("event deleted");
-      res.redirect('/events');
+  Event.findById( req.params.eventId )
+    .then( event=> {
+      console.log("DEBUG", event._owner.toString() , req.user._id.toString());
+      console.log("DEBUG", event._owner.toString() === req.user._id.toString());
+      if (event._owner.toString() === req.user._id.toString()) {
+        Event.findByIdAndRemove(req.params.eventId)
+        .then(() => res.redirect("/events"))
+      }
+      else {
+        res.redirect("/events")
+      }
     })
     .catch( err => { throw err } );
 });

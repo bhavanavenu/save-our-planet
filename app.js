@@ -72,14 +72,15 @@ app.use(session({
   store: new MongoStore( { mongooseConnection: mongoose.connection })
 }))
 
-// app.use(function(req,res,next){
-//   res.locals.myUser = req.user;
-//   next();
-// })
+
 
 app.use(flash());
 require('./passport')(app);
     
+app.use(function(req,res,next){
+  res.locals.user = req.user;
+  next();
+})
 
 const index = require('./routes/index');
 app.use('/', index);

@@ -22,6 +22,7 @@ eventRoutes.get('/new-event',(req,res,next)=>{
 });
 
 eventRoutes.post('/new-event',(req,res,next)=>{
+  let userId = req.user.id;
     const {name,location,description,date,time} = req.body; 
     console.log("req.body", req.body);
     console.log("name,location,description,date,time", name,location,description,date,time);
@@ -36,10 +37,16 @@ eventRoutes.post('/new-event',(req,res,next)=>{
     comments: [],
     // time
   });
-  newEvent.save()
+  User.findByIdAndUpdate(userId, { $push: {events: newEvent}}, {new:true})
+  .then(()=>{
+    newEvent.save()
     .then((event) => {
+
       res.redirect('/events')
     })
+  })
+
+  
     .catch((error) => {
       console.log(error)
     })
@@ -47,9 +54,9 @@ eventRoutes.post('/new-event',(req,res,next)=>{
 })
 
 eventRoutes.get("/", (req, res) => {
+  
     Event.find()
     .then((events)=>{
-        console.log(events)
         res.render("events/event",{events})
     })
     .catch((error)=>{
@@ -60,11 +67,12 @@ eventRoutes.get("/", (req, res) => {
   eventRoutes.get('/:eventId', (req, res, next) => {
     let eventId = req.params.eventId;
     Event.findById(eventId)
-    .populate('_participants')
+    .populate('_participants comments._author')
+
       .then(event => {
-        const participants = event._participants;
-        const comments = event.comments;
-        res.render("events/details",{event, participants: participants, comments: comments})
+        console.log("event ", event);
+
+        res.render("events/details",{event})
       })
       .catch(error => {
         console.log(error)
@@ -76,14 +84,19 @@ eventRoutes.get('/:eventId/join',(req,res,next)=>{
   let eventId = req.params.eventId;
   Event.findById(eventId)
   .then( event => {
-    event._participants.push( joiningUserId );
+
+   if (event._participants.length === 0){ 
+     event._participants.push( joiningUserId );
     event.save( (err, updatedEvent) => {
       if ( err ) {
         console.log( err )
       } else {
         res.redirect(`/events/${updatedEvent._id}`)
       }
-    })
+    })}
+    else {
+      res.redirect(`/events/${updatedEvent._id}`)
+    }
   } )
    //{ $push: {_participants: req.user._id} }
 

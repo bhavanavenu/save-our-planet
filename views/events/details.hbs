@@ -21,10 +21,13 @@
 {{/if}}
 
 <h5>Comments :</h5>
-{{#if event}}
+{{#if event.comments}}
 <ul>
-    {{#each name }}
-    <li>{{event.comments}}</li>
+    {{#each event.comments }}
+    <li>{{text}}</li>
+    <li>{{_author.username}}</li>
+    <li>{{createdAt}}</li>
+    <br>
     {{/each}}
 </ul>
 {{/if}}

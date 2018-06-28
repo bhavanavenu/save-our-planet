@@ -10,6 +10,7 @@ const userSchema = new Schema({
   email   : String,
   image   : String,
   bio     : String,
+  events: [{type: Schema.Types.ObjectId, ref: 'Event'}]
   // _users: {type: Schema.Types.ObjectId, ref: 'User'}
   
 }, {

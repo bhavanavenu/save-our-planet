@@ -36,7 +36,7 @@ eventRoutes.post('/new-event',(req,res,next)=>{
     });
     newEvent.save()
     .then((event)=>{
-                res.redirect('/events/event')
+                res.redirect('/events')
             })
                 .catch((error)=>{
                     console.log(error)

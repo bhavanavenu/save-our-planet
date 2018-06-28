@@ -92,9 +92,7 @@ authRoutes.post("/signup", (req, res, next) => {
           subject: "Congratulations for being a part of the change", 
           text: message,
           html: `<b>${message} <a href="http://localhost:3000/auth/confirm/${hashConfirmation}">Link</a></b>`
-          
-          //html: `Confirmation code: http://localhost:3000/auth/confirm/${hashConfirmation}`
-        })
+             })
         .then(info => res.render("message", { email, subject, message, info }))
         .catch(error => console.log(error));
         res.redirect("/");
@@ -104,7 +102,7 @@ authRoutes.post("/signup", (req, res, next) => {
   });
 });
 
-// confirmation
+// confirmation link
 authRoutes.get('/confirm/:hashConfirmation', (req,res,next) => {
   //const confirmationCode = req.params.hashConfirmation;
   console.log(req.params.hashConfirmation);
@@ -123,9 +121,7 @@ authRoutes.get('/confirm/:hashConfirmation', (req,res,next) => {
   });
 });
 
-
-
-
+//logout
 authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/auth/login");
@@ -140,6 +136,9 @@ authRoutes.get("/logout", (req, res) => {
 //   });
 // });
 
+// authRoutes.get('/auth/profile', (req, res, next) => {
+//   res.render('auth/profile');
+// });
 authRoutes.get("/profile",ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => {
   console.log(req.user)
 

@@ -7,6 +7,11 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+router.get("/contactUs", (req, res, next) => {
+  res.render("contactUs");
+});
+
+
 // GET profile page
 router.get('/auth/profile/:userId', (req, res, next) => {
 let userId = req.params.userId;

@@ -148,16 +148,14 @@ eventRoutes.post('/:eventId/update', (req, res, next) => {
     name, 
     location,
     description,
-    date,
-    _participants,
-    comments } = req.body;
+    date
+    } = req.body;
 
     let updatedChanges = {name, 
       location,
       description,
       date,
-      _participants,
-      comments
+      
     }
   Event.findByIdAndUpdate( req.params.eventId, updatedChanges)
     .then( event => {

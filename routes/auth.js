@@ -140,9 +140,6 @@ authRoutes.get("/logout", (req, res) => {
 //   });
 // });
 
-// authRoutes.get('/auth/profile', (req, res, next) => {
-//   res.render('auth/profile');
-// });
 authRoutes.get("/profile",ensureLogin.ensureLoggedIn('/auth/login'), (req, res) => {
   console.log(req.user)
 

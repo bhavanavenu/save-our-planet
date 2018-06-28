@@ -1,6 +1,6 @@
 
 <h1>Edit {{name}}</h1>
-<form action="/events/{{this._id}}" method="POST">
+<form action="/events/{{this._id}}/update" method="POST">
 
   <label for="Event Name">Event Name :</label>
   <input id ="Event Name" type="text" name="name" placeholder="add a short,clear name" value="{{name}}">
@@ -13,7 +13,7 @@
  
 
   <label for="Date">Date :</label>
-  <input id="Date" type="date" name="date" placeholder="" value="{{date}}">
+  <input id="Date" type="date" name="date" placeholder="" value="{{date}}" required>
 
  
 
@@ -24,7 +24,7 @@
  
 
  <label for="Description">Description :</label>
- <textarea rows="4" cols="50" name="description" value="{{description}}">
+ <textarea rows="4" cols="50" name="description" value="{{description}}" required>
 
 </textarea>
 

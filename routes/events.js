@@ -27,22 +27,22 @@ eventRoutes.post('/new-event',(req,res,next)=>{
     console.log("name,location,description,date,time", name,location,description,date,time);
     
 
-    const newEvent = new Event ({
-        name,
-        location,
-        description,
-        date,
-        _participants:[],
-        comments:[],
-        // time
-    });
-    newEvent.save()
-    .then((event)=>{
-                res.redirect('/events')
-            })
-                .catch((error)=>{
-                    console.log(error)
-            })
+  const newEvent = new Event({
+    name,
+    location,
+    description,
+    date,
+    _participants: [],
+    comments: [],
+    // time
+  });
+  newEvent.save()
+    .then((event) => {
+      res.redirect('/events')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 
 })
 
@@ -142,27 +142,25 @@ eventRoutes.post('/:eventId/comment', (req, res, next) => {
   });
 
 
-  //update event page
+//update event page
 eventRoutes.post('/:eventId/update', (req, res, next) => {
+  console.log("req body :", req.body)
   let { 
     name, 
     location,
     description,
-    date,
-    _participants,
-    comments } = req.body;
+    date 
+    } = req.body;
 
     let updatedChanges = {name, 
       location,
       description,
-      date,
-      _participants,
-      comments
+      date
     }
   Event.findByIdAndUpdate( req.params.eventId, updatedChanges)
     .then( event => {
-      console.log("hey")
-      res.redirect( `/events/${event._id}`);
+      console.log("event  ", event)
+      res.redirect( `/events`);
     })
     .catch( err => { throw err } );
 });

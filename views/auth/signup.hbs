@@ -11,7 +11,7 @@
                         <div class="card-body">
                             <form action="/auth/signup" class="form" role="form" autocomplete="off" method="POST">
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Name</label>
+                                    <label class="col-lg-3 col-form-label form-control-label">Name:</label>
                                     <div class="col-lg-9">
                                         <input class="form-control" name="name" type="text" value="">
                                     </div>
@@ -23,20 +23,20 @@
                                     </div>
                                 </div> --}}
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                    <label class="col-lg-3 col-form-label form-control-label">Username:</label>
                                     <div class="col-lg-9">
                                         <input class="form-control" name="username" type="text" value="">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                    <label class="col-lg-3 col-form-label form-control-label">Email:</label>
                                     <div class="col-lg-9">
                                         <input class="form-control" type="text" value="" name="email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                    <label class="col-lg-3 col-form-label form-control-label">Password:</label>
                                     <div class="col-lg-9">
                                         <input class="form-control" type="password" value="" name="password">
                                     </div>
@@ -51,7 +51,8 @@
                                 <div class="form-group row">
                                     {{!-- <label class="col-lg-3 col-form-label form-control-label">Create Account</label> --}}
                                     <div class="col-lg-9">
-                                       <button type="submit">Create account</button>
+
+                                       <button class="btn btn-success"type="submit">Create account</button>
                                         {{!-- <input type="reset" class="btn btn-secondary" value="Cancel"> --}}
                                      
                                         
@@ -66,10 +67,10 @@
                                     <p class="account-message">
                                     Do you already have an account?
                                     <a href="/auth/login">
-                                    <input type="button" class="btn btn-primary" value="login">
-                                        </a> 
-                        </div>
-                    </div>
+                                    <input type="button" class="btn btn-success" value="login">
+                                 </a> 
+                             </div>
+                         </div>
                     <!-- /form user info -->
         </div>
     </div>

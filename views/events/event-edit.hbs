@@ -1,38 +1,51 @@
+<div class="container">
 
-<h1>Edit {{name}}</h1>
+<h2>Edit Event : {{name}}</h2>
 <form action="/events/{{this._id}}" method="POST">
 
-  <label for="Event Name">Event Name :</label>
-  <input id ="Event Name" type="text" name="name" placeholder="add a short,clear name" value="{{name}}">
-
+  <div class="form-group">
+  <label class="col-lg-3 col-form-label form-control-label" for="Event Name">Event Name :</label>
+  <div class="col-lg-9">
+  <input class="form-control" id ="Event Name" type="text" name="name" placeholder="add a short,clear name" value="{{name}}">
+  </div>
+  </div>
   
-
-  <label for="Location">Location :</label>
-  <input id="Location" type="text" name="location" placeholder="include an address" value="{{location}}">
-
- 
-
-  <label for="Date">Date :</label>
-  <input id="Date" type="date" name="date" placeholder="" value="{{date}}">
+  <div class="form-group">
+  <label class="col-lg-3 col-form-label form-control-label" for="Location">Location :</label>
+  <div class="col-lg-9">
+  <input class="form-control" id="Location" type="text" name="location" placeholder="include an address" value="{{location}}">
+  </div>
+  </div>
 
  
-
-  {{!-- <label for="Time">Time :</label>
-  <input id="Time" type="time" name="time" placeholder="" value="{{> --}}
-
+  <div class="form-group">
+  <label class="col-lg-3 col-form-label form-control-label"for="Date">Date :</label>
+  <div class="col-lg-9">
+  <input class="form-control" id="Date" type="date" name="date" placeholder="" value="{{date}}">
+  </div>
+  </div>
 
  
+<div class="form-group">
+  <label class="col-lg-3 col-form-label form-control-label" for="Time">Time :</label>
+   <div class="col-lg-9">
+  <input class="form-control" id="Time" type="time" name="time" placeholder="" value="{{time}}">
+   </div>
+   </div>
 
- <label for="Description">Description :</label>
- <textarea rows="4" cols="50" name="description" value="{{description}}">
-
+<div class="form-group">
+ <label class="col-lg-3 col-form-label form-control-label" for="Description">Description :</label>
+ <div class="col-lg-9">
+ <textarea class="form-control" rows="2" cols="50" name="description" value="{{description}}">
 </textarea>
-
+</div>
+</div>
   {{!-- <label for="Description">Description :</label>
   <input id="Description" type="description" name="description" placeholder="tell people more about the event"> --}}
  <p>Yes!!! You can invite your friends too :)</p>
 
  
-<button type="submit">Update</button>
+<button class ="btn btn-success" type="submit">Update changes</button>
 
 </form>
+</div>

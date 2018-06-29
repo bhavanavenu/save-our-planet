@@ -70,7 +70,7 @@ eventRoutes.get("/", (req, res) => {
   eventRoutes.get('/:eventId', (req, res, next) => {
     let eventId = req.params.eventId;
     Event.findById(eventId)
-    .populate('_participants comments._author')
+    .populate('_participants comments._author _owner')
 
       .then(event => {
         console.log("event ", event);

@@ -22,6 +22,11 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+console.log("CREDENTIALS!!!!!", {
+  user: process.env.GMAIL_EMAIL,
+  pass: process.env.GMAIL_PASSWORD,
+})
+
 //GET login
 authRoutes.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });

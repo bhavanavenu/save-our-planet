@@ -61,6 +61,7 @@ h3 {
   margin: 0 auto;
   text-decoration: none; }
 
+<<<<<<< HEAD
 input[type=text], select, textarea {
   width: 100%;
   /* Full width */
@@ -106,5 +107,26 @@ h4 {
 .comment-box {
   border: 1px solid black;
   padding: 1rem; }
+=======
+.event-card {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin: auto;
+  flex-flow: row wrap;
+  flex-direction: row; }
+
+h5.card-title a {
+  color: red; }
+
+h3 span {
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: .3rem 2rem; }
+
+.event-row {
+  width: 100%; }
+>>>>>>> 3ff8e30d633561c3411ec8a78ac3dee2d1ecb554
 
 /*# sourceMappingURL=style.css.map */

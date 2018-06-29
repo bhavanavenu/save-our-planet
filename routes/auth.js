@@ -92,7 +92,7 @@ authRoutes.post("/signup", (req, res, next) => {
           to: email, 
           subject: "Congratulations for being a part of the change", 
           text: message,
-          html: `<b>${message} <a href="http://localhost:3000/auth/confirm/${hashConfirmation}">Link</a></b>`
+          html: `<b>${message} <a href="${process.env.WEBSITE_URI}/auth/confirm/${hashConfirmation}">Link</a></b>`
              })
         .then(info => res.render("message", { email, subject, message, info }))
         .catch(error => console.log(error));

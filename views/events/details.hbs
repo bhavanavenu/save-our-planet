@@ -7,7 +7,11 @@
 <h4>Location : {{event.location}}</h4>
 <h4>Date : {{event.date}}</h4>
 <h4>Description : {{event.description}}</h4>
-<a href="/events"><button class="btn btn-success">Return</button></a> <a href="/events/{{event._id}}/join"><button class="btn btn-success">Join</button></a>
+<a href="/events"><button class="btn btn-success">Return</button></a> <a href="/events/{{event._id}}/join"><button class="btn btn-success">Join</button></a> <a href="http://www.facebook.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook"width="40px";height="40px" /><a href="https://twitter.com" target="_blank" >
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" width="40px";height="40px"/>
+    </a>
+    </a>
 <form action="/events/{{event._id}}/comment" method="POST">
 <textarea id="comments" name="text" rows="2" cols="50"></textarea>
 <button class ="btn btn-success"type="submit">Comment</button>

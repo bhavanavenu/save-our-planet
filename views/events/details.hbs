@@ -1,16 +1,37 @@
 <div class="container">
+    <div class="row">
+<div class="col-left col-8 line">
+<h5>More Details</h5>
+<h4>Event Name : {{event.name}}</h4>
+<h4>Organizer : {{event._owner.username}}</h4>
+<h4>Location : {{event.location}}</h4>
+<h4>Date : {{event.date}}</h4>
+<h4>Description : {{event.description}}</h4>
+<a href="/events"><button class="btn btn-success">Return</button></a> <a href="/events/{{event._id}}/join"><button class="btn btn-success">Join</button></a>
+<form action="/events/{{event._id}}/comment" method="POST">
+<textarea id="comments" name="text" rows="2" cols="50"></textarea>
+<button class ="btn btn-success"type="submit">Comment</button>
+</form>
 
-<h5>Event Name : {{event.name}}</h5>
-<h5>Organizer : {{event._owner.username}}</h5>
-<h5>Location : {{event.location}}</h5>
-<h5>Date : {{event.date}}</h5>
-<h5>Description : {{event.description}}</h5>
-<a href="/events">Return</a>
-<br>
-<br>
-<a href="/events/{{event._id}}/join">Join</a>
+<h5>Comments :</h5>
+{{#if event.comments}}
+<div>
+    {{#each event.comments }}
 
+    <div class="comment-box">
+        {{text}}
+        <hr>    
+        {{_author.username}} commented at {{createdAt}}
+    </div>
+    
+    <br>
+    {{/each}}
+</div>
+{{/if}}
 
+</div> 
+
+<div class="col-right col-4">
 <h5>Participants : </h5>
 {{#if event._participants}}
 <ul>
@@ -19,23 +40,7 @@
     {{/each}}
 </ul>
 {{/if}}
-
-<h5>Comments :</h5>
-{{#if event.comments}}
-<ul>
-    {{#each event.comments }}
-    <li>{{text}}</li>
-    <li>{{_author.username}}</li>
-    <li>{{createdAt}}</li>
-    <br>
-    {{/each}}
-</ul>
-{{/if}}
-
-<form action="/events/{{event._id}}/comment" method="POST">
-<textarea id="comments" name="text" rows="4" cols="50"></textarea>
-<button type="submit">Comment</button>
-</form>
 </div>
-
+</div>
+</div>
  

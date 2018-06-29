@@ -1,9 +1,12 @@
-
+* {
+  font-family: Vollkorn;
+}
 
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background:#e1f4dc;
+  //font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  //background-image: url(https://res.cloudinary.com/ddxwupalu/image/upload/v1530263951/vinicius-henrique-553782-unsplash.jpg);
+  background : #e1f4dc;
 }
 
 a {
@@ -31,14 +34,14 @@ a {
   background-color:white;
   color:grey;
   text-align: center;
-  font-style: oblique;
+  //font-style: oblique;
   padding-bottom: 10px;
 }
 
 .navbar {
   
   background-color:white;
-  font-style: oblique;
+  //font-style: oblique;
 }
 
 .navbar-brand img{
@@ -64,7 +67,7 @@ a {
 
 h3 {
   font-size: 4em;
-  font-family: Arial, Helvetica, sans-serif;
+  //font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: 300;
   margin-top: 10px;
@@ -75,3 +78,49 @@ h3 {
   text-decoration: none;
 }
 
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */  
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+iframe {
+  height: 100%;
+}
+
+h5{
+  font-size: 2em; 
+}
+
+h4 {
+  font-size:1em;
+}
+
+.line {
+  border-right:1px solid black;
+}
+
+.comment-box {
+  border: 1px solid black;
+  padding: 1rem;
+}

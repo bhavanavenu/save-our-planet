@@ -88,7 +88,6 @@ eventRoutes.get('/:eventId/join',(req,res,next)=>{
   Event.findById(eventId)
   .then( event => {
 
-   if (event._participants.length === 0){ 
      event._participants.push( joiningUserId );
     event.save( (err, updatedEvent) => {
       if ( err ) {
@@ -96,10 +95,8 @@ eventRoutes.get('/:eventId/join',(req,res,next)=>{
       } else {
         res.redirect(`/events/${updatedEvent._id}`)
       }
-    })}
-    else {
-      res.redirect(`/events/${updatedEvent._id}`)
-    }
+    })
+    
   } )
    //{ $push: {_participants: req.user._id} }
 

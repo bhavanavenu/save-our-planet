@@ -1,5 +1,7 @@
+* {
+  font-family: Vollkorn; }
+
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #e1f4dc; }
 
 a {
@@ -24,12 +26,10 @@ a {
   background-color: white;
   color: grey;
   text-align: center;
-  font-style: oblique;
   padding-bottom: 10px; }
 
 .navbar {
-  background-color: white;
-  font-style: oblique; }
+  background-color: white; }
 
 .navbar-brand img {
   border-radius: 50%; }
@@ -52,7 +52,6 @@ a {
 
 h3 {
   font-size: 4em;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: 300;
   margin-top: 10px; }
@@ -62,6 +61,53 @@ h3 {
   margin: 0 auto;
   text-decoration: none; }
 
+<<<<<<< HEAD
+input[type=text], select, textarea {
+  width: 100%;
+  /* Full width */
+  padding: 12px;
+  /* Some padding */
+  border: 1px solid #ccc;
+  /* Gray border */
+  border-radius: 4px;
+  /* Rounded borders */
+  box-sizing: border-box;
+  /* Make sure that padding and width stays in place */
+  margin-top: 6px;
+  /* Add a top margin */
+  margin-bottom: 16px;
+  /* Bottom margin */
+  resize: vertical; }
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; }
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049; }
+
+iframe {
+  height: 100%; }
+
+h5 {
+  font-size: 2em; }
+
+h4 {
+  font-size: 1em; }
+
+.line {
+  border-right: 1px solid black; }
+
+.comment-box {
+  border: 1px solid black;
+  padding: 1rem; }
+=======
 .event-card {
   display: flex;
   justify-content: space-between;
@@ -81,5 +127,6 @@ h3 span {
 
 .event-row {
   width: 100%; }
+>>>>>>> 3ff8e30d633561c3411ec8a78ac3dee2d1ecb554
 
 /*# sourceMappingURL=style.css.map */
